@@ -1,0 +1,245 @@
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  background: #f5f6fa;
+  color: #222;
+  min-height: 100vh;
+}
+
+/* ── Screens ── */
+.screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+}
+
+/* ── Setup Screen ── */
+.setup-title {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #2c3e50;
+}
+
+.setup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.setup-form label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #34495e;
+  align-self: flex-start;
+}
+
+.setup-form input[type="text"] {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1.1rem;
+  border: 2px solid #bdc3c7;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.setup-form input[type="text"]:focus {
+  border-color: #3498db;
+}
+
+.error-msg {
+  color: #e74c3c;
+  font-size: 0.95rem;
+  align-self: flex-start;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  padding: 12px 36px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #2980b9;
+}
+
+.btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ── Game Screen ── */
+.game-screen {
+  justify-content: flex-start;
+  padding-top: 40px;
+  gap: 32px;
+}
+
+.game-header {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.game-title {
+  font-size: 1.4rem;
+  color: #2c3e50;
+}
+
+.game-progress {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+}
+
+/* ── Payoff Table ── */
+.payoff-wrapper {
+  overflow-x: auto;
+  max-width: 960px;
+  width: 100%;
+}
+
+.payoff-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.payoff-table th,
+.payoff-table td {
+  border: 2px solid #bdc3c7;
+  padding: 16px 24px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.col-header {
+  background: #ecf0f1;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.row-header {
+  background: #ecf0f1;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #2c3e50;
+  text-align: left;
+}
+
+.corner-cell {
+  background: #ecf0f1;
+}
+
+.payoff-cell {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a252f;
+}
+
+/* ── Game Footer ── */
+.game-footer {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* ── Choice Buttons ── */
+.choice-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.choice-label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.radio-option input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #3498db;
+  cursor: pointer;
+}
+
+.btn-submit {
+  padding: 14px 48px;
+  font-size: 1.15rem;
+}
+
+/* ── Finish Screen ── */
+.finish-title {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 16px;
+}
+
+.finish-message {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 40px;
+}
+
+.btn-download {
+  text-decoration: none;
+  display: inline-block;
+  background: #27ae60;
+}
+
+.btn-download:hover {
+  background: #219a52;
+}
+
+/* ── Loading / Error ── */
+.loading-screen,
+.error-screen {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+}
+
+.error-screen {
+  color: #e74c3c;
+}
