@@ -37,7 +37,12 @@ def get_games():
 @app.post("/api/results", status_code=201)
 def post_result(result: ResultIn):
     row = result.model_dump()
-    results_store[result.subject_id].append(row)
+    subject_rows = results_store[result.subject_id]
+    for i, existing in enumerate(subject_rows):
+        if existing["trial"] == result.trial:
+            subject_rows[i] = row
+            return {"status": "ok"}
+    subject_rows.append(row)
     return {"status": "ok"}
 
 

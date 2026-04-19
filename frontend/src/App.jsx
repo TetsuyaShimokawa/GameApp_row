@@ -20,6 +20,7 @@ export default function App() {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [startCount, setStartCount] = useState(0);
 
   useEffect(() => {
     fetchGames()
@@ -37,6 +38,7 @@ export default function App() {
   function handleStart(id) {
     setSubjectId(id);
     setGames((prev) => shuffle(prev));
+    setStartCount((c) => c + 1);
     setScreen("game");
   }
 
@@ -53,6 +55,7 @@ export default function App() {
       {screen === "setup" && <SetupScreen onStart={handleStart} />}
       {screen === "game" && (
         <GameScreen
+          key={startCount}
           games={games}
           subjectId={subjectId}
           onFinish={() => setScreen("finish")}

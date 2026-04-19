@@ -12,8 +12,10 @@ export default function GameScreen({ games, subjectId, onFinish }) {
 
   const currentGame = games[trialIndex];
 
+  // Reset state for each new trial; submitting stays true until this effect runs
   useEffect(() => {
     setSelected(null);
+    setSubmitting(false);
     start();
   }, [trialIndex, start]);
 
@@ -39,10 +41,11 @@ export default function GameScreen({ games, subjectId, onFinish }) {
 
     if (trialIndex + 1 < games.length) {
       setTrialIndex((i) => i + 1);
+      // submitting remains true until the trialIndex useEffect resets it
     } else {
       onFinish();
+      // component unmounts; no further interaction possible
     }
-    setSubmitting(false);
   }
 
   return (
