@@ -29,12 +29,12 @@ app.add_middleware(
 results_store: dict[str, list[dict]] = defaultdict(list)
 
 
-@app.get("/api/games")
+@app.get("/api/gamerow/games")
 def get_games():
     return GAMES
 
 
-@app.post("/api/results", status_code=201)
+@app.post("/api/gamerow/results", status_code=201)
 def post_result(result: ResultIn):
     row = result.model_dump()
     subject_rows = results_store[result.subject_id]
@@ -46,7 +46,7 @@ def post_result(result: ResultIn):
     return {"status": "ok"}
 
 
-@app.get("/api/results/{subject_id}/csv")
+@app.get("/api/gamerow/results/{subject_id}/csv")
 def get_csv(subject_id: str):
     rows = results_store.get(subject_id)
     if not rows:
